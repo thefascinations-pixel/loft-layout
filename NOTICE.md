@@ -1,6 +1,8 @@
 # Notice
 
-Fork of **Kanso** by jlopezlira (https://github.com/jlopezlira/herdr-kanso, tag v3.30.0), licensed Apache-2.0.
+Every mod, theme, shared-state key and the layout were renamed from `kanso` to `loft` so Loft installs next to Kanso without clashing. Upstream attribution lines are kept as written.
+
+Loft is a renamed fork of **Kanso** by jlopezlira (https://github.com/jlopezlira/herdr-kanso, tag v3.30.0), licensed Apache-2.0.
 Kanso derives from the `spaces` mod shipped with Herdr (Apache-2.0, https://github.com/herdrdev/herdr-app), with changes by 0OZ, José Gutiérrez and Iván Campaña. The original copyright and "Modified by" lines are kept in each file.
 
 Changes in this fork:
@@ -9,7 +11,7 @@ Changes in this fork:
 - Each terminal header shows a descriptive name instead of the program name.
 - Sidebar: agents running outside Herdr (VS Code, tmux) listed per machine; an Archive of past Claude Code, Codex, pi and OpenCode sessions that can be resumed; Wake/Forget buttons on sleeping rows; machine latency tags; OpenCode status.
 - Spend panel: restyled, with a monthly quota view and a heatmap.
-- Self-updaters (`kanso-chrome/update.js`, `kanso-tabs/update.js`) are no-op stubs.
+- Self-updaters (`loft-chrome/update.js`, `loft-tabs/update.js`) are no-op stubs.
 
 Included but not ours: `mods/office` is the pixel-office mod by DustyPolk (herdr-office), with local changes (OpenCode agents, outside-Herdr agents, room layout). No licence was found with it. Get the author's permission before publishing, or remove `mods/office` and have people install it from herdr.dev/mods.
 

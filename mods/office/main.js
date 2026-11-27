@@ -16,11 +16,11 @@ import PiWork from "./piwork.js";
 // rough location, then asks Open-Meteo for the current conditions there.
 const WEATHER = false;
 
-// Local patch: a descriptive name for an agent, the same one Kanso's sidebar and headers show
-// (its conversation title, shared as "kanso.names"), else its own title, else its tab's name.
+// Local patch: a descriptive name for an agent, the same one Loft's sidebar and headers show
+// (its conversation title, shared as "loft.names"), else its own title, else its tab's name.
 const cleanTitle = (x) => String(x ?? "").replace(/^[^\p{L}\p{N}]+/u, "").trim();
 function nameFor(a) {
-  const said = (shared("kanso.names") ?? {})[a.address];
+  const said = (shared("loft.names") ?? {})[a.address];
   if (said && said !== a.address) return said;
   const live = cleanTitle(a.title);
   if (live && !/^[~/]/.test(live) && !live.includes("@") && live !== a.program?.name) return live;
@@ -86,11 +86,11 @@ const rotate = (list, n) => list.map((_, i) => list[(i + n) % list.length]);
 const clock = (d) => `${d.getHours()}:${String(d.getMinutes()).padStart(2, "0")}`;
 const remote = (address) => address.includes("/");
 
-// Local patch: agents running outside Herdr (VS Code, a plain terminal), as kanso-spaces finds them
-// (shared "kanso.outside"). They get a desk like anyone, but have no pane to jump to.
+// Local patch: agents running outside Herdr (VS Code, a plain terminal), as loft-spaces finds them
+// (shared "loft.outside"). They get a desk like anyone, but have no pane to jump to.
 const OUT_PROG = { claude: { key: "claude", name: "Claude Code" }, codex: { key: "codex", name: "Codex" }, pi: { key: "pi", name: "pi" } };
 function outsideAgents() {
-  return (shared("kanso.outside") ?? []).map((o) => ({
+  return (shared("loft.outside") ?? []).map((o) => ({
     address: `out:${o.id}`.replace(/\//g, "_"), pane: null, space: null, space_name: o.machine ?? "This Mac",
     tab: null, tab_index: 0, tab_name: null, status: o.status, app: o.agent,
     program: { ...(OUT_PROG[o.agent] ?? OUT_PROG.claude), icon: null, tint: false, tile: null, color: null, shell: false, agent: true },
@@ -134,7 +134,7 @@ function opencodeAgents(real, rows) {
     if (!(k.program?.key === "opencode" || (k.argv ?? []).some((x) => /(^|\/)opencode$/.test(String(x))))) continue;
     const pane = panes().find((p) => p.terminal === k.address) ?? null;
     const sp = pane ? spaces().find((x) => x.id === pane.space) : null;
-    const shown = String(k.labels?.["kanso.shown"] ?? "").replace(/^OC \| /, "").replace(/\u2026$/, "").trim();
+    const shown = String(k.labels?.["loft.shown"] ?? "").replace(/^OC \| /, "").replace(/\u2026$/, "").trim();
     const cwd = k.cwd ?? k.last_cwd ?? null;
     const row = (rows ?? []).find((r) => shown && r.title.startsWith(shown)) ?? (rows ?? []).find((r) => r.directory === cwd) ?? null;
     const working = Boolean(row) && row.role === "assistant" && !row.comp && Date.now() - Number(row.upd) < OC_WORKING_MS;
@@ -874,7 +874,7 @@ export default class Office extends View {
   // The spinning bar: a breathing dot, a fill that sweeps, and the turn's age. On battery the
   // motion holds still, as the rest of the office does.
   turnBar(since, top) {
-    const quiet = shared("kanso.battery") === true;
+    const quiet = shared("loft.battery") === true;
     const secs = Math.max(0, Math.floor((Date.now() - since) / 1000));
     const when = secs < 60 ? `${secs}s` : `${Math.floor(secs / 60)}:${String(secs % 60).padStart(2, "0")}`;
     const w = 58;

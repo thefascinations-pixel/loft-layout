@@ -1,4 +1,4 @@
-# Kanso "office" pi worker probe: live pi terminals that Herdr cannot see (pi sends no OSC 7501
+# Loft "office" pi worker probe: live pi terminals that Herdr cannot see (pi sends no OSC 7501
 # status report) get their status read from the session file pi writes for them. Read-only; prints
 # JSON. The list of terminals comes on argv[1] as a JSON array of {address, cwd, created_ms, title}.
 # Turn starts learned across ticks are cached in ~/.cache/office-piwork.json, so a turn longer

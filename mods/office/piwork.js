@@ -23,7 +23,7 @@ export default class PiWork {
 
   // Live pi terminals: herdr launches agents as `zsh -lic <wrapper> /bin/zsh pi`, so "pi" is an
   // argv word of its own, or the app's program table says so. Remote machines are skipped (their
-  // session files are not on this Mac). created_ms falls back to the kanso.id label's suffix.
+  // session files are not on this Mac). created_ms falls back to the loft.id label's suffix.
   piTerminals() {
     const out = [];
     for (const k of terminals()) {
@@ -32,7 +32,7 @@ export default class PiWork {
       const byArgv = args.some((x) => String(x) === "pi" || /(^|\/)(bin\/)?pi$/.test(String(x)));
       const byProg = k.program?.key === "pi";
       if (!byArgv && !byProg) continue;
-      const created = k.created_ms ?? (Number(String(k.labels?.["kanso.id"] ?? "").split("-").pop()) || null);
+      const created = k.created_ms ?? (Number(String(k.labels?.["loft.id"] ?? "").split("-").pop()) || null);
       out.push({ address: k.address, cwd: k.cwd ?? null, created_ms: created, title: k.title ?? null });
     }
     // Newest first, so the probe hands the most recently written file to the newest terminal.
