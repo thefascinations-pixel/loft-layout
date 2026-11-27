@@ -27,7 +27,7 @@ Left to right: sidebar (256px), main column, optional right panel.
 ## Built from
 
 - Layout `layouts/kanso.json`: root row `[sidebar, main-col]`. `sidebar` is a column of `brand` (hidden), `spaces` (`kanso-spaces`) and `sidebar-footer` (`kanso-chrome`, prop `footer: true`). `main-col` is a column of `office` (the `office` mod, 220px, with two floating blocks of `kanso-tabs`, props `part: "title"` and `part: "panels"`) and `work` (padding 6, holding the terminals and `kanso-strip` rulers).
-- Mods: `kanso-spaces`, `kanso-chrome`, `kanso-tabs`, `kanso-strip`, `kanso-spend`, plus the helper mods the sidebar and top bar open (`kanso-arrange`, `-containers`, `-dojo`, `-guard`, `-help`, `-menu`, `-panel`, `-prompt`, `-prompt-editor`, `-send`, `-settings`, `-sim`, `-sleep`, `-status`, `-toast`). `office` comes from herdr.dev/mods and is not in this repo.
+- Mods: `kanso-spaces`, `kanso-chrome`, `kanso-tabs`, `kanso-strip`, `kanso-spend`, plus the helper mods the sidebar and top bar open (`kanso-arrange`, `-containers`, `-dojo`, `-guard`, `-help`, `-menu`, `-panel`, `-prompt`, `-prompt-editor`, `-send`, `-settings`, `-sim`, `-sleep`, `-status`, `-toast`). `office` is DustyPolk's herdr-office mod, included with local changes (see NOTICE.md).
 - Fork of Kanso v3.30.0 (Apache-2.0). See NOTICE.md.
 - Programs it runs: `outside.py`, `archive.py` and `piwork.py` (read-only probes that list processes and session files), read through `exec` and `hc` on each machine. They read `~/.claude`, `~/.codex`, `~/.pi` and OpenCode's `opencode.db`. Nothing is sent to the network.
 

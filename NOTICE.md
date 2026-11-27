@@ -11,6 +11,6 @@ Changes in this fork:
 - Spend panel: restyled, with a monthly quota view and a heatmap.
 - Self-updaters (`kanso-chrome/update.js`, `kanso-tabs/update.js`) are no-op stubs.
 
-Not included: the `office` mod (DustyPolk/herdr-office). The layout expects it. Install it from herdr.dev/mods.
+Included but not ours: `mods/office` is the pixel-office mod by DustyPolk (herdr-office), with local changes (OpenCode agents, outside-Herdr agents, room layout). No licence was found with it. Get the author's permission before publishing, or remove `mods/office` and have people install it from herdr.dev/mods.
 
 Apache-2.0 licence text: https://www.apache.org/licenses/LICENSE-2.0

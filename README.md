@@ -1,10 +1,12 @@
 # Kanso (modified)
 
+![Preview (mock-up, dummy data)](preview.png)
+
 A Herdr layout: projects, status and threads in a sidebar; floating top-bar islands; an office scene above the terminals; a Spend panel on the right. Fork of Kanso v3.30.0 (see NOTICE.md).
 
 ## Install
 
-Install the `office` mod from herdr.dev/mods first, then:
+Then:
 
 ```sh
 cp layouts/kanso.json ~/.config/herdr-app/layouts/kanso-modded.json
@@ -24,4 +26,4 @@ Switch back with `ctrl-shift-l`. Back up any existing `kanso-*` mod folders firs
 ## Status
 
 - Every mod passes `herdr-app check`.
-- `preview.png` is not included yet. Take one with `herdr-app shot` on a window without personal sessions, then add the repo topic `herdr-layout`.
+- `preview.png` is an illustrative mock-up with dummy data, not a screenshot of a live window.
