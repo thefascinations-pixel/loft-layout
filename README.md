@@ -25,3 +25,14 @@ Switch back with `ctrl-shift-l`. Back up any existing `loft-*` mod folders first
 
 - Every mod passes `herdr-app check`.
 - `preview.png` is an illustrative mock-up with dummy data, not a screenshot of a live window.
+
+## Credits
+
+Loft stands on other people's work. Thank you to:
+
+- **jlopezlira** — [Kanso](https://github.com/jlopezlira/herdr-kanso), the layout and mods this is forked from (v3.30.0, Apache-2.0).
+- **0OZ, José Gutiérrez and Iván Campaña** — earlier changes to the sidebar mod that Kanso builds on.
+- **DustyPolk** — [herdr-office](https://github.com/DustyPolk/herdr-office), the pixel office scene in `mods/office`, included here with local changes.
+- **Herdr** — the app and the original `spaces` mod ([herdrdev/herdr-app](https://github.com/herdrdev/herdr-app), Apache-2.0).
+
+If you are one of the authors above and want something changed or removed, open an issue. Licence and change details are in NOTICE.md.
