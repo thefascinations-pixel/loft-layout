@@ -1,0 +1,29 @@
+// Shipped's share card, by jlopezlira (https://github.com/jlopezlira/herdr-kanso). Apache-2.0.
+import { postText } from "./share.js";
+
+export function shareText(s, extra) {
+  const merged = s.stats.find((x) => x.unit === "pull requests merged");
+  const parts = [
+    ...(s.big ? [`${s.big} ${s.byDay ? "contributions" : "lines shipped"} ${s.period.toLowerCase()}`] : []),
+    ...(merged && merged.value !== "—" && merged.value !== "0" ? [`${merged.value} pull requests merged`] : []),
+    ...(extra.streak > 1 ? [`a ${extra.streak}-day streak`] : []),
+  ];
+  return postText(parts, "What I shipped.");
+}
+
+export function shippedSpec(s, extra) {
+  const blocks = [
+    { kind: "streak", title: "Streak", right: `longest ${extra.longest} ${extra.longest === 1 ? "day" : "days"}`,
+      n: extra.streak, unit: extra.streak === 1 ? "day in a row" : "days in a row", weeks: extra.weeks },
+    { kind: "list", title: "Records", rows: extra.records ?? [] },
+    ...(extra.rhythm ? [{ kind: "bars", title: "When you ship", right: extra.rhythm.note, values: extra.rhythm.hours, ticks: ["00", "06", "12", "18", "23"] }] : []),
+  ];
+  return {
+    title: "Shipped",
+    right: [s.login ? `@${s.login}` : "", s.period].filter(Boolean).join("  ·  "),
+    hero: { big: s.big, small: s.small, label: s.label, delta: s.delta === null || s.delta === undefined ? null : { up: s.delta >= 0, text: s.deltaText } },
+    stats: s.stats,
+    note: s.everText,
+    blocks,
+  };
+}
